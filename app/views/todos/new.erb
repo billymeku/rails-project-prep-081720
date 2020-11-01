@@ -1,0 +1,20 @@
+<% if @todo.errors.any?  %>
+    <% @todo.errors.full_messages.each do |error| %>
+        <p> <%= error  %></p>
+    <% end %>
+<% end %>
+
+<% if @todo.errors.any?  %>
+    <p><%= @todo.errors.full_messages.to_sentence %></p>   
+<% end %>
+
+<%= form_with model: @todo, local: true do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+
+    <%= f.label :complete %>
+    <%= f.check_box :complete %><br><br>
+
+    <%= f.submit %>
+
+<% end %>
